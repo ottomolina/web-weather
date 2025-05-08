@@ -1,0 +1,95 @@
+.input-search-place {
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #ECEEEF;
+    padding: 0 1rem;
+    border-right: 0;
+    width: 100%;
+}
+
+.input-search-place:focus {
+    outline: unset;
+}
+
+.container-icon {
+    border-radius: 0 25px 25px 0;
+    border: 1px solid #ECEEEF;
+    border-left: 0;
+    padding: 5px;
+}
+
+.icon-search {
+    font-size: 30px;
+}
+
+.div-results {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+.div-result {
+    background-color: #fff;
+    overflow-y: scroll;
+    z-index: 2;
+    position: absolute;
+    height: 250px;
+    margin-top: 10px;
+    border: 1px solid #eceeef;
+    border-radius: 6px;
+    padding: 0 15px;
+    left: 50%;
+    transform: translate(-50%);
+    min-width: 325px;
+    max-width: 450px;
+    width: 100%;
+    li {
+        list-style: none;
+        box-sizing: border-box;
+        position: relative;
+        padding: 10px;
+        color: #666;
+        border-bottom: 1px solid #eceeef;
+        min-height: 47px;
+        width: 100%;
+        float: left;
+    }
+    li:hover {
+        background-color: lightgrey;
+    }
+}
+
+.list-result {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.result-invisible {
+    display: none;
+}
+
+.result-visible {
+    display: block;
+}
+
+.location-icon {
+    width: 28px;
+    height: 28px;
+    display: block;
+    float: left;
+    margin-right: 6px;
+    background-repeat: no-repeat;
+    background-image: url(https://www.tiempo.com/js/bundle/3c1f495f10511f011bc2.svg);
+}
+
+.name {
+    font-size: 10pt;
+    font-weight: 700;
+}
+
+.name-display {
+    font-size: .6rem;
+}
