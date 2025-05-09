@@ -6,6 +6,7 @@ import { environment } from '../../../environments/environment.development';
 import { Place } from '../../models/place.model';
 import { IpExternal } from '../../models/ip-external.model';
 import { CountryIpAddress } from '../../models/country-ip-address.model';
+import { Weather } from '../../models/weater.model';
 
 
 @Injectable({
@@ -29,6 +30,13 @@ export class LocationService {
 
   public getCountryFromIpAddress(ip: string): Observable<CountryIpAddress> {
     return this.http.get<CountryIpAddress>(`${environment.urlCountryIpAddress}${ip}`);
+  }
+
+  public getWeatherByCoords(latitude: string, longitude: string): Observable<Weather> {
+    let url = `${environment.urlWeather}`;
+    url = url.replace('{lat}', encodeURIComponent(latitude));
+    url = url.replace('{lon}', encodeURIComponent(longitude));
+    return this.http.get<Weather>(url);
   }
 
 }
