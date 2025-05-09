@@ -1,5 +1,10 @@
-<app-header (onSelectPlace)="select($event)"></app-header>
+<app-header (onSelectPlace)="selectPlace($event)"></app-header>
 
+<div *ngIf="!isLoading" class="container">
+  <app-card-current-weather [place]="placeSelected"
+                            [weather]="weather">
+  </app-card-current-weather>
+</div>
 
 <ngx-spinner bdColor="rgba(51,51,51,0.8)"
              size="medium"

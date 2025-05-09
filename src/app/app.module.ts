@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from './components/header/header.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CardCurrentWeatherModule } from './components/card-current-weather/card-current-weather.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AppRoutingModule,
     HttpClientModule,
     HeaderModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    CardCurrentWeatherModule
   ],
   providers: [],
   bootstrap: [AppComponent]
