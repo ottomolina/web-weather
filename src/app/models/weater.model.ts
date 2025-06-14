@@ -73,6 +73,9 @@ export interface DailyUnits {
   weather_code: string
   temperature_2m_max: string
   temperature_2m_min: string
+  wind_direction_10m_dominant: string
+  wind_gusts_10m_min: string
+  wind_gusts_10m_max: string
 }
 
 export interface Daily {
@@ -84,5 +87,8 @@ export interface Daily {
   weather_code: number[]
   temperature_2m_max: number[]
   temperature_2m_min: number[]
+  wind_direction_10m_dominant: number[]
+  wind_gusts_10m_min: number[]
+  wind_gusts_10m_max: number[]
 }
   

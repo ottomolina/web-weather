@@ -21,7 +21,7 @@ export class LocationService {
   public getListPlaces(place: string): Observable<Array<Place>> {
     let url = `${environment.urlPlaces}`;
     url = url.replace('{place}', encodeURIComponent(place));
-    return this.http.get<Array<Place>>(url);
+    return this.http.get<Array<Place>>(url,{responseType:'json'});
   }
 
   public getIpAddress(): Observable<IpExternal> {
