@@ -1,0 +1,38 @@
+<div class="row g-0 d-none d-md-flex justify-content-center">
+    <div class="col col-md-9 col-lg-9 col-xl-7 col-xxl-7 d-flex justify-content-center div-range-days">
+        <span *ngFor="let item of linksRange"
+            class="text-range"
+            [ngClass]="{'range-active': item.active}"
+            (click)="clickRange(item); this.clickBtnPrevNext(item.code);">
+            {{item.text}}
+        </span>
+    </div>
+</div>
+<br>
+<div class="row g-0 d-none d-md-flex justify-content-center px-2 px-md-auto">
+    <div class="col col-lg-10 d-flex justify-content-md-center" style="overflow: auto;">
+        <div class="prev" [ngClass]="{'hide-button': initialSlice===0}">
+            <span class="button-prev" (click)="clickBtnPrevNext(0)">
+                <i class='bx bx-chevron-left'></i>
+            </span>
+        </div>
+        <app-card-day-weather *ngFor="let item of listDailyWeather | slice: initialSlice:finalSlice;"
+                            [dailyUnits]="weather.daily_units"
+                            [dailyWeather]="item"
+                            >
+        </app-card-day-weather>
+        <div class="next" [ngClass]="{'hide-button': initialSlice===7}">
+            <span class="button-next" (click)="clickBtnPrevNext(7)">
+                <i class='bx bx-chevron-right'></i>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="row g-0 d-flex d-md-none">
+    <div class="list-group">
+        <app-item-day-weather *ngFor="let item of listDailyWeather"
+                            [dailyUnits]="weather.daily_units"
+                            [dailyWeather]="item">
+        </app-item-day-weather>
+    </div>
+</div>
