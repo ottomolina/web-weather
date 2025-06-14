@@ -4,6 +4,7 @@ import { WeatherCodePipe } from './weather-code.pipe';
 import { WeatherCodeIconPipe } from './weather-code-icon.pipe';
 import { FormatNumberPipe } from './format-number.pipe';
 import { DayAndMonth } from './day-and-month.pipe';
+import { WindDirectionIconPipe } from './wind-direction-icon.pipe';
 
 @NgModule({
     declarations: [
@@ -12,6 +13,7 @@ import { DayAndMonth } from './day-and-month.pipe';
         WeatherCodeIconPipe,
         FormatNumberPipe,
         DayAndMonth,
+        WindDirectionIconPipe,
     ],
     exports: [
         DayOfWeek,
@@ -19,6 +21,7 @@ import { DayAndMonth } from './day-and-month.pipe';
         WeatherCodeIconPipe,
         FormatNumberPipe,
         DayAndMonth,
+        WindDirectionIconPipe,
     ],
 })
 
