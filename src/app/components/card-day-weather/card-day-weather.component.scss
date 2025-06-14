@@ -1,0 +1,66 @@
+
+.div-day-weather {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    padding: 1em 0.75em;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    img {
+        width: 70px;
+    }
+}
+
+.div-day-weather:hover {
+    background-color: rgba(0, 71, 102, 0.1);
+}
+
+.active, .active:hover {
+    background-color: rgba(0, 71, 102, 0.2);
+    cursor: default;
+}
+
+.text-day-name {
+    font-weight: bold;
+}
+
+.text-day-date {
+    color: #5F6A6A;
+    font-size: .875rem;
+}
+
+.text-blue-small {
+    color: #3498DB;
+    font-size: 10pt;
+}
+
+.text-percent-rain {
+    font-weight: 600;
+}
+
+.container-temperature {
+    font-size: 0.75rem;
+    margin-bottom: .375rem;
+    padding-top: .25rem;
+}
+
+.text-min-temperature {
+    color: #2980B9;
+    font-weight: bold;
+}
+
+.text-max-temperature {
+    color: #CB4335;
+    font-weight: bold;
+}
+
+.container-wind-info {
+    font-size: .875rem;
+    line-height: 1rem;
+}
+
+.bx {
+    font-size:32px;
+    align-self: center;
+}

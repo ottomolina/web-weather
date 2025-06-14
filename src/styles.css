@@ -3,3 +3,32 @@ html, body, .container-fluid {
     height: 100%;
     min-width: 18rem;
 }
+
+body {
+    background-color: #ECEEEF;
+}
+
+.wind-south {
+    rotate: 0deg;
+}
+.wind-southwest {
+    rotate: 45deg;
+}
+.wind-west {
+    rotate: 90deg;
+}
+.wind-northwest {
+    rotate: 135deg;
+}
+.wind-north {
+    rotate: 180deg;
+}
+.wind-northeast {
+    rotate: 225deg;
+}
+.wind-east {
+    rotate: 270deg;
+}
+.wind-southeast {
+    rotate: 315deg;
+}
