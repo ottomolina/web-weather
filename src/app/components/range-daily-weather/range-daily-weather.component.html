@@ -19,12 +19,25 @@
         <app-card-day-weather *ngFor="let item of listDailyWeather | slice: initialSlice:finalSlice;"
                             [dailyUnits]="weather.daily_units"
                             [dailyWeather]="item"
+                            (click)="clickCardDay(item)"
                             >
         </app-card-day-weather>
         <div class="next" [ngClass]="{'hide-button': initialSlice===7}">
             <span class="button-next" (click)="clickBtnPrevNext(7)">
                 <i class='bx bx-chevron-right'></i>
             </span>
+        </div>
+    
+    </div>
+</div>
+<div class="row g-0 d-none d-md-flex justify-content-center px-2 px-md-auto">
+    <div class="col d-flex justify-content-md-center" style="overflow: auto;">
+        <div class="container-hourly list-group">
+            <h4 *ngIf="itemDaySelected">El tiempo en {{place.name}} {{itemDaySelected.date | dayOfWeek:true}}, {{itemDaySelected.date | dayAndMonth:'long'}}</h4>
+            <app-item-hour-weather *ngFor="let item of listByHour"
+                                    [hourlyUnits]="weather.hourly_units"
+                                    [hourlyWeather]="item">
+            </app-item-hour-weather>
         </div>
     </div>
 </div>

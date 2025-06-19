@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Weather } from '../../models/weater.model';
 import { DailyWeather } from '../../models/daily-weather.model';
+import { HourlyWeather } from '../../models/hourly-weather.model';
+import { Place } from '../../models/place.model';
 
 interface LinkRange {
   text: string;
@@ -15,11 +17,15 @@ interface LinkRange {
 })
 export class RangeDailyWeatherComponent implements OnInit {
   @Input() weather: Weather;
+  @Input() place: Place;
 
   public linksRange: Array<LinkRange> = [];
   public listDailyWeather: Array<DailyWeather>;
   public initialSlice: number = 0;
   public finalSlice: number = 7;
+  
+  public listByHour: Array<HourlyWeather> = [];
+  public itemDaySelected: DailyWeather;
 
   constructor() {
     this.linksRange.push({ text: 'El tiempo 1 - 7 días', active: true, code: 0 });
@@ -52,7 +58,7 @@ export class RangeDailyWeatherComponent implements OnInit {
         weather_code: daily.weather_code[i],
         temperature_2m_max: daily.temperature_2m_max[i],
         temperature_2m_min: daily.temperature_2m_min[i],
-        active: i === initial,
+        active: false,
         time: daily.time[i],
         sunrise: daily.sunrise[i],
         sunset: daily.sunset[i],
@@ -63,6 +69,7 @@ export class RangeDailyWeatherComponent implements OnInit {
       this.listDailyWeather.push(item);
       i++;
     }
+    this.clickCardDay(this.listDailyWeather[0]);
   }
 
   public clickBtnPrevNext(index: number) {
@@ -70,11 +77,47 @@ export class RangeDailyWeatherComponent implements OnInit {
     this.finalSlice = this.initialSlice+7;
     const itemRange = this.linksRange.filter(item => item.code === index)[0];
     this.clickRange(itemRange);
-    this.setActiveItem(index)
+    this.setActiveItem(index);
+    this.clickCardDay(this.listDailyWeather[index]);
   }
 
   private setActiveItem(index: number) {
     this.listDailyWeather[index].active = true;
+  }
+
+  public selectItemCard(itemSelected: DailyWeather) {
+    this.listDailyWeather.forEach(e => e.active = false);
+    itemSelected.active = true;
+  }
+
+  public clickCardDay(itemSelected: DailyWeather) {
+    this.selectItemCard(itemSelected);
+
+    this.itemDaySelected = itemSelected;
+    this.listByHour = [];
+    let i=0;
+    while(i < this.weather.hourly.time.length && this.listByHour.length < 24) {
+      const { time, temperature_2m, apparent_temperature, wind_speed_10m, wind_gusts_10m, relative_humidity_2m,
+              wind_direction_10m, precipitation, precipitation_probability, weather_code } = this.weather.hourly;
+      const timeElement = time[i].split('T');
+      if(timeElement[0] === itemSelected.time) {
+        const item: HourlyWeather = {
+          time: timeElement[1],
+          temperature_2m: temperature_2m[i],
+          apparent_temperature: apparent_temperature[i],
+          wind_speed_10m: wind_speed_10m[i],
+          wind_gusts_10m: wind_gusts_10m[i],
+          wind_direction_10m: wind_direction_10m[i],
+          relative_humidity_2m: relative_humidity_2m[i],
+          precipitation: precipitation[i],
+          precipitation_probability: precipitation_probability[i],
+          weather_code: weather_code[i],
+          isDay: new Date(time[i]) > new Date(itemSelected.sunrise) && new Date(time[i]) < new Date(itemSelected.sunset) ? 1 : 0
+        }
+        this.listByHour.push(item);
+      }
+      i++;
+    }
   }
 
 }
