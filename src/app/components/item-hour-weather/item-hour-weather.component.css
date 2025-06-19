@@ -1,0 +1,18 @@
+
+.item-hour img {
+    width: 80px;
+}
+
+.text-precipitation {
+    color: #3498DB;
+    padding-left: 10px;
+    font-size: 10pt;
+}
+
+.col-item {
+    flex: 1;
+}
+
+.bx {
+    font-size: 35px;
+}
