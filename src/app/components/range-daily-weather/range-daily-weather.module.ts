@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RangeDailyWeatherComponent } from './range-daily-weather.component';
 import { PipesModule } from '../../pipes/pipes.module';
 import { CardDayWeatherModule } from '../card-day-weather/card-day-weather.module';
-import { ItemDayWeatherModule } from '../item-day-weather/item-day-weather.module';
 import { ItemHourWeatherModule } from '../item-hour-weather/item-hour-weather.module';
+import { HourlyModule } from '../hourly/hourly.module';
 
 
 
@@ -16,8 +16,8 @@ import { ItemHourWeatherModule } from '../item-hour-weather/item-hour-weather.mo
     CommonModule,
     PipesModule,
     CardDayWeatherModule,
-    ItemDayWeatherModule,
-    ItemHourWeatherModule
+    ItemHourWeatherModule,
+    HourlyModule
   ],
   exports: [
     RangeDailyWeatherComponent

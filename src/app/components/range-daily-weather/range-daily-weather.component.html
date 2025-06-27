@@ -42,10 +42,5 @@
     </div>
 </div>
 <div class="row g-0 d-flex d-md-none">
-    <div class="list-group">
-        <app-item-day-weather *ngFor="let item of listDailyWeather"
-                            [dailyUnits]="weather.daily_units"
-                            [dailyWeather]="item">
-        </app-item-day-weather>
-    </div>
+    <app-hourly [place]="place" [weather]="weather"></app-hourly>
 </div>
