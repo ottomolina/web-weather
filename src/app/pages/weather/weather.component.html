@@ -1,0 +1,11 @@
+<app-header (onSelectPlace)="selectPlace($event)"></app-header>
+
+<div *ngIf="!isLoading" class="container-fluid g-0">
+  <app-card-current-weather [place]="placeSelected"
+                            [weather]="weather">
+  </app-card-current-weather>
+  <br>
+  <app-range-daily-weather [weather]="weather"
+                           [place]="placeSelected">
+  </app-range-daily-weather>
+</div>
