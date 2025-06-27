@@ -7,7 +7,7 @@ const nameDays = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','S�
 })
 export class DayOfWeek implements PipeTransform {
 
-    transform(time?: string, card?: boolean) {
+    transform(time?: string, card?: boolean, withDate?: boolean) {
 
         const date = this.transformIntoDate(time);
         if(card) {
@@ -18,7 +18,10 @@ export class DayOfWeek implements PipeTransform {
                 return 'Mañana';
             }
         }
-        return nameDays[date.getDay()];
+        let day = withDate
+            ? `${nameDays[date.getDay()].substring(0,3)} ${date.getDate()}`
+            : nameDays[date.getDay()];
+        return day;
     }
 
     transformIntoDate(time?: string, addDay: number = 0) {
