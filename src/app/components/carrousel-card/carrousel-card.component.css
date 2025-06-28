@@ -1,0 +1,43 @@
+
+app-card-day-weather {
+    margin: 0 3px;
+}
+
+.next, .prev {
+    position: relative;
+    display: flex;
+    align-items: center;
+    visibility: visible;
+}
+
+.button-next, .button-prev {
+    position: absolute;
+    right: -1rem;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #ECEEEF;
+    justify-content: center;
+    align-items: center;
+    color: #0074AD;
+    cursor: pointer;
+
+    i {
+        font-size: 25px;
+    }
+}
+
+.button-prev {
+    left: -1rem !important;
+}
+
+.button-next:hover, .button-prev:hover {
+    color: #A9CCE3;
+    background-color: #ECEEEF;
+}
+
+.hide-button {
+    visibility: hidden;
+}
