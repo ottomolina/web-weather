@@ -14,5 +14,25 @@
 }
 
 .bx {
-    font-size: 35px;
+    font-size:32px;
+    align-self: center;
+}
+
+.item-row {
+    flex: 1;
+}
+.day-week {
+    font-weight: 600;
+}
+
+.precipitation {
+    font-size: 0.75rem;
+}
+
+.temperature {
+    font-size: 15px;
+}
+
+.wind-info {
+    font-size: .688rem;
 }
