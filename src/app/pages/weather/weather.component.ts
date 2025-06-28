@@ -12,8 +12,9 @@ import { firstValueFrom } from 'rxjs';
 })
 export class WeatherComponent {
   public isLoading: boolean = true;
-  public placeSelected: Place;
+  public place: Place;
   public weather: Weather;
+  public time: string;
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -24,12 +25,11 @@ export class WeatherComponent {
     try {
       this.isLoading = true;
       await this.spinner.show();
-      this.placeSelected = event
+      this.place = event
       
       this.weather = await firstValueFrom(
-        this.locationService.getWeatherByCoords(this.placeSelected.lat, this.placeSelected.lon)
+        this.locationService.getWeatherByCoords(this.place.lat, this.place.lon)
       );
-      console.log('weather', this.weather);
 
     } catch(error) {
       console.error('error', error);
@@ -38,5 +38,13 @@ export class WeatherComponent {
       this.isLoading = false;
       await this.spinner.hide();
     }
+  }
+
+  public cardSelect(event: any) {
+    this.time = event;
+  }
+  
+  public tabSelect(event: any) {
+    this.time = event;
   }
 }

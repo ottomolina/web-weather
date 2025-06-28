@@ -1,11 +1,19 @@
 <app-header (onSelectPlace)="selectPlace($event)"></app-header>
 
 <div *ngIf="!isLoading" class="container-fluid g-0">
-  <app-card-current-weather [place]="placeSelected"
-                            [weather]="weather">
+  <app-card-current-weather [weather]="weather"
+                            [place]="place">
   </app-card-current-weather>
   <br>
-  <app-range-daily-weather [weather]="weather"
-                           [place]="placeSelected">
-  </app-range-daily-weather>
+  <app-carrousel-card [weather]="weather"
+                      [place]="place"
+                      (onCardSelect)="cardSelect($event)">
+  </app-carrousel-card>
+  <app-carrousel-tabs [weather]="weather"
+                      (onTabSelect)="tabSelect($event)">
+  </app-carrousel-tabs>
+  <app-list-hour-weather [weather]="weather"
+                         [place]="place"
+                         [time]="time">
+  </app-list-hour-weather>
 </div>
