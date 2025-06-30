@@ -1,11 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 html, body, .container-fluid {
-    height: 100%;
     min-width: 18rem;
-}
-
-body {
-    background-color: #ECEEEF;
 }
 
 .wind-south {
