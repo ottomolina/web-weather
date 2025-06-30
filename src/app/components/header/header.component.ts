@@ -4,6 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { Place } from '../../models/place.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SessionstorageService } from '../../services/storage/sessionstorage.service';
+import { ToastService } from '../toast/toast.service';
 
 const TRIGGER_BUSCAR = 750;
 
@@ -23,7 +24,8 @@ export class HeaderComponent {
   constructor(
     private locationService: LocationService,
     private spinner: NgxSpinnerService,
-    private sessionStorage: SessionstorageService
+    private sessionStorage: SessionstorageService,
+    private toast: ToastService,
   ) {
     this.getCountryFromIp();
   }
@@ -42,7 +44,7 @@ export class HeaderComponent {
       
     } catch(error) {
       console.error('error', error);
-      alert('Ocurrió un inconveniente al realizar esta acción.');
+      this.toast.error('Ocurrió un inconveniente al cargar los datos, reintenta nuevamente.');
     } finally {
       this.spinner.hide();
     }
@@ -60,16 +62,21 @@ export class HeaderComponent {
   }
 
   async searchingProcess(place: string) {
-    let list = await firstValueFrom(this.locationService.getListPlaces(place));
-    this.listPlaces = [];
-    list = list.filter((item:Place, index:number) => {
-      return list.findIndex(e => e.display_name === item.display_name) === index;
-    });
-    this.listPlaces = list;
-    this.listPlaces = [
-      ...this.listPlaces.filter(e => e.display_name.toLocaleLowerCase().includes(this.sessionStorage.countryIpAddressExternal.toLocaleLowerCase())),
-      ...this.listPlaces.filter(e => !e.display_name.toLocaleLowerCase().includes(this.sessionStorage.countryIpAddressExternal.toLocaleLowerCase()))
-    ]
+    try {
+      let list = await firstValueFrom(this.locationService.getListPlaces(place));
+      this.listPlaces = [];
+      list = list.filter((item:Place, index:number) => {
+        return list.findIndex(e => e.display_name === item.display_name) === index;
+      });
+      this.listPlaces = list;
+      this.listPlaces = [
+        ...this.listPlaces.filter(e => e.display_name.toLocaleLowerCase().includes(this.sessionStorage.countryIpAddressExternal.toLocaleLowerCase())),
+        ...this.listPlaces.filter(e => !e.display_name.toLocaleLowerCase().includes(this.sessionStorage.countryIpAddressExternal.toLocaleLowerCase()))
+      ]
+    } catch(error) {
+      console.error('error', error);
+      this.toast.error('Ocurrió un inconveniente al realizar la búsqueda, reintenta nuevamente.');
+    }
   }
 
   focusSearch() {

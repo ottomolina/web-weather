@@ -4,6 +4,7 @@ import { Weather } from '../../models/weater.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LocationService } from '../../services/location/location.service';
 import { firstValueFrom } from 'rxjs';
+import { ToastService } from '../../components/toast/toast.service';
 
 @Component({
   selector: 'app-weather',
@@ -18,7 +19,8 @@ export class WeatherComponent {
 
   constructor(
     private spinner: NgxSpinnerService,
-    private locationService: LocationService
+    private locationService: LocationService,
+    private toast: ToastService,
   ) {  }
 
   async selectPlace(event: Place) {
@@ -33,7 +35,7 @@ export class WeatherComponent {
 
     } catch(error) {
       console.error('error', error);
-      alert('Ocurrió un inconveniente al realizar esta acción.');
+      this.toast.error('Ocurrió un inconveniente al cargar los datos, reintenta nuevamente.');
     } finally {
       this.isLoading = false;
       await this.spinner.hide();

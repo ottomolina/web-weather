@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastService } from './components/toast/toast.service';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  
+  constructor(
+    public toastService: ToastService,
+  ) { }
 }

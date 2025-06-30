@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastModule } from './components/toast/toast.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
+    ToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
