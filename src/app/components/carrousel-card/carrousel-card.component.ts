@@ -10,7 +10,6 @@ import { DailyWeather } from '../../models/daily-weather.model';
 })
 export class CarrouselCardComponent implements OnInit {
   @Input() weather: Weather;
-  @Input() place: Place;
   @Output() onCardSelect = new EventEmitter<string>();
 
   public listDailyWeather: Array<DailyWeather>;

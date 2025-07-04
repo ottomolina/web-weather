@@ -33,9 +33,8 @@ export class HeaderComponent {
   public async getCountryFromIp() {
     try {
       this.spinner.show();
-      const ipObject = await firstValueFrom(this.locationService.getIpAddress())
-      this.sessionStorage.ipAddressExternal = ipObject.ip;
-      const countryObject = await firstValueFrom(this.locationService.getCountryFromIpAddress(ipObject.ip));
+      const countryObject = await firstValueFrom(this.locationService.getCountryFromIpAddress());
+      this.sessionStorage.ipAddressExternal = countryObject.ip;
       this.sessionStorage.countryIpAddressExternal = countryObject.country;
 
       await this.searchingProcess(countryObject.country);

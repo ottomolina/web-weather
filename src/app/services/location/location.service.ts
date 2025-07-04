@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment.development';
 import { Place } from '../../models/place.model';
-import { IpExternal } from '../../models/ip-external.model';
 import { CountryIpAddress } from '../../models/country-ip-address.model';
 import { Weather } from '../../models/weater.model';
 
@@ -24,12 +23,8 @@ export class LocationService {
     return this.http.get<Array<Place>>(url,{responseType:'json'});
   }
 
-  public getIpAddress(): Observable<IpExternal> {
-    return this.http.get<IpExternal>(environment.urlDetectIp);
-  }
-
-  public getCountryFromIpAddress(ip: string): Observable<CountryIpAddress> {
-    return this.http.get<CountryIpAddress>(`${environment.urlCountryIpAddress}${ip}`);
+  public getCountryFromIpAddress(): Observable<CountryIpAddress> {
+    return this.http.get<CountryIpAddress>(`${environment.urlCountryIpAddress}`);
   }
 
   public getWeatherByCoords(latitude: string, longitude: string): Observable<Weather> {
