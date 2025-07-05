@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastModule } from './components/toast/toast.module';
+import { LanguageTranslationModule } from './shared/modules/language-translation.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ToastModule } from './components/toast/toast.module';
     HttpClientModule,
     NgxSpinnerModule,
     ToastModule,
+    LanguageTranslationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
