@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardCurrentWeatherComponent } from './card-current-weather.component';
 import { PipesModule } from '../../pipes/pipes.module';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 
@@ -11,7 +12,8 @@ import { PipesModule } from '../../pipes/pipes.module';
   ],
   imports: [
     CommonModule,
-    PipesModule
+    PipesModule,
+    TranslatePipe
   ],
   exports: [
     CardCurrentWeatherComponent

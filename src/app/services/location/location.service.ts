@@ -6,6 +6,7 @@ import { environment } from '../../../environments/environment.development';
 import { Place } from '../../models/place.model';
 import { CountryIpAddress } from '../../models/country-ip-address.model';
 import { Weather } from '../../models/weater.model';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable({
@@ -14,12 +15,14 @@ import { Weather } from '../../models/weater.model';
 export class LocationService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private translate: TranslateService
   ) { }
 
   public getListPlaces(place: string): Observable<Array<Place>> {
     let url = `${environment.urlPlaces}`;
     url = url.replace('{place}', encodeURIComponent(place));
+    url = url.replace('{lang}', this.translate.currentLang);
     return this.http.get<Array<Place>>(url,{responseType:'json'});
   }
 

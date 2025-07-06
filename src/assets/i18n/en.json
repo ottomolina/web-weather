@@ -1,1 +1,44 @@
-{}
+{
+    "app.title": "Weather",
+    "search.placeholder": "Search for...",
+    "error_messages": {
+        "getcountryfromip1": "There was a problem loading the data, please refresh the page to try again.",
+        "searchingprocess1": "A problem occurred while performing the search, please try again.",
+        "selectPlace1": "A problem occurred while performing this action, please try again."
+    },
+    "body.title": "The wheater in {{place.name}}",
+    "card.current.feeling": "Feeling of",
+    "hourly.sensation": "T. Sensation",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+
+    "north": "North",
+    "northeast": "Northeast",
+    "east": "East",
+    "southeast": "Southeast",
+    "south": "South",
+    "southwest": "Southwest",
+    "west": "West",
+    "north-west": "Northwest",
+    
+    "Clear": "Clear",
+    "Partly cloudy": "Partly cloudy",
+    "Fog": "Fog",
+    "Drizzle": "Drizzle",
+    "Freezing drizzle": "Freezing drizzle",
+    "Rain": "Rain",
+    "Freezing rain": "Freezing rain",
+    "Snowfall": "Snowfall",
+    "Hail": "Hail",
+    "Rain showers": "Rain showers",
+    "Snow showers": "Snow showers",
+    "Thunderstorm": "Thunderstorm",
+    "Thunderstorm with hail": "Thunderstorm with hail",
+    
+    "not_found": {
+        "parragraph1": "Page requested is not available.",
+        "parragraph2": "Page you are trying to access is unavailable or has been moved.",
+        "parragraph3": "Try returning to the home page.",
+        "home_button": "Return to home"
+    }
+}

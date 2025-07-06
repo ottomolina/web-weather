@@ -1,15 +1,15 @@
 <div class="row g-0 d-flex justify-content-center">
     <div class="col col-lg-6 col-md-8 d-flex flex-column align-items-center">
-        <h2>El tiempo en {{place.name}}</h2>
+        <h2>{{'body.title' | translate:{place} }}</h2>
         <span class="text-hour-day">{{getCurrentHour()}} | {{undefined | dayOfWeek}}</span>
         <div class="card-current col-10 col-md-8">
-            <span class="text-weather-code">{{weather.current.weather_code | weatherCode}}</span>
+            <span class="text-weather-code">{{weather.current.weather_code | weatherCode | translate}}</span>
             <div class="d-flex flex-row justify-content-evenly">
                 <div class="d-flex flex-row align-items-baseline">
                     <img [src]="weather.current.weather_code | weatherCodeIcon: weather.current.is_day">
                     <div class="d-flex flex-column justify-content-center align-items-center">
                         <span class="text-current-temperature">{{weather.current.temperature_2m | formatNumber}}°</span>
-                        <span class="text-apparent-temperature">Sensación de {{weather.current.apparent_temperature | formatNumber}}°</span>
+                        <span class="text-apparent-temperature">{{'card.current.feeling'|translate}} {{weather.current.apparent_temperature | formatNumber}}°</span>
                     </div>
                 </div>
                 <div class="d-flex flex-column justify-content-between">

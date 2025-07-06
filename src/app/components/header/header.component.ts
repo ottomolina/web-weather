@@ -5,6 +5,7 @@ import { Place } from '../../models/place.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SessionstorageService } from '../../services/storage/sessionstorage.service';
 import { ToastService } from '../toast/toast.service';
+import { TranslateService } from '@ngx-translate/core';
 
 const TRIGGER_BUSCAR = 750;
 
@@ -26,13 +27,14 @@ export class HeaderComponent {
     private spinner: NgxSpinnerService,
     private sessionStorage: SessionstorageService,
     private toast: ToastService,
+    private translate: TranslateService
   ) {
     this.getCountryFromIp();
   }
 
   public async getCountryFromIp() {
     try {
-      this.spinner.show();
+      await this.spinner.show();
       const countryObject = await firstValueFrom(this.locationService.getCountryFromIpAddress());
       this.sessionStorage.ipAddressExternal = countryObject.ip;
       this.sessionStorage.countryIpAddressExternal = countryObject.country;
@@ -43,7 +45,7 @@ export class HeaderComponent {
       
     } catch(error) {
       console.error('error', error);
-      this.toast.error('Ocurrió un inconveniente al cargar los datos, reintenta nuevamente.');
+      this.toast.error(this.translate.instant('error_messages.getcountryfromip1'));
     } finally {
       this.spinner.hide();
     }
@@ -74,7 +76,7 @@ export class HeaderComponent {
       ]
     } catch(error) {
       console.error('error', error);
-      this.toast.error('Ocurrió un inconveniente al realizar la búsqueda, reintenta nuevamente.');
+      this.toast.error(this.translate.instant('error_messages.searchingprocess1'));
     }
   }
 

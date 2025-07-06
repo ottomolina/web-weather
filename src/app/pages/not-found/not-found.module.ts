@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NotFoundComponent } from './not-found.component';
 import { NotFoundRoutingModule } from './not-found-routing.module';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { NotFoundRoutingModule } from './not-found-routing.module';
   imports: [
     CommonModule,
     NotFoundRoutingModule,
+    TranslatePipe,
   ]
 })
 export class NotFoundModule { }

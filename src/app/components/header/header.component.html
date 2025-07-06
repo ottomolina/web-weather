@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid justify-content-center">
-    <span class="navbar-brand">CLIMA</span>
+    <span class="navbar-brand">{{'app.title' | translate}}</span>
     <div>
       <div class="d-flex" role="search">
         <input class="form-control me-2" 
                id="txtBuscar"
                type="search"
-               placeholder="Clima en..."
+               [placeholder]="'search.placeholder' | translate"
                aria-label="Search"
                (focus)="focusSearch()"
                (blur)="blurSearch()"

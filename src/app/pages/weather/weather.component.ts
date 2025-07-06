@@ -5,6 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { LocationService } from '../../services/location/location.service';
 import { firstValueFrom } from 'rxjs';
 import { ToastService } from '../../components/toast/toast.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-weather',
@@ -21,6 +22,7 @@ export class WeatherComponent {
     private spinner: NgxSpinnerService,
     private locationService: LocationService,
     private toast: ToastService,
+    private translate: TranslateService
   ) {  }
 
   async selectPlace(event: Place) {
@@ -35,7 +37,7 @@ export class WeatherComponent {
 
     } catch(error) {
       console.error('error', error);
-      this.toast.error('Ocurrió un inconveniente al cargar los datos, reintenta nuevamente.');
+      this.toast.error(this.translate.instant('error_messages.selectPlace1'));
     } finally {
       this.isLoading = false;
       await this.spinner.hide();

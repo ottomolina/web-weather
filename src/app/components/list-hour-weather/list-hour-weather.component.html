@@ -1,7 +1,7 @@
 <div class="row g-0 d-flex justify-content-center px-md-2 px-md-auto">
     <div class="container-hourly">
         <div class="col">
-            <p class="fw-bold">El tiempo en {{place.name}} {{time | dayOfWeek:true}}, {{time | dayAndMonth:'long'}}</p>
+            <p class="fw-bold">{{'body.title' | translate:{place} }} {{time | dayOfWeek:true}}, {{time | dayAndMonth:'long'}}</p>
         </div>
         <div class="list-group list-group-flush">
             <app-item-hour-weather *ngFor="let item of listByHour"

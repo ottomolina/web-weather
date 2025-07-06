@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListHourWeatherComponent } from './list-hour-weather.component';
 import { PipesModule } from '../../pipes/pipes.module';
 import { ItemHourWeatherModule } from '../item-hour-weather/item-hour-weather.module';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { ItemHourWeatherModule } from '../item-hour-weather/item-hour-weather.mo
   imports: [
     CommonModule,
     PipesModule,
-    ItemHourWeatherModule
+    ItemHourWeatherModule,
+    TranslatePipe
   ],
   exports: [
     ListHourWeatherComponent

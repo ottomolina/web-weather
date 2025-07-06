@@ -12,13 +12,13 @@
         <span class="fw-bold fs-4">{{hourlyWeather.temperature_2m | formatNumber}}°</span>
     </div>
     <div class="col-item d-flex flex-column">
-        <span class="fw-bold">{{hourlyWeather.weather_code | weatherCode}}</span>
-        <span>Sensación T. {{hourlyWeather.apparent_temperature | formatNumber}}°</span>
+        <span class="fw-bold">{{hourlyWeather.weather_code | weatherCode | translate }}</span>
+        <span>{{'hourly.sensation'|translate}} {{hourlyWeather.apparent_temperature | formatNumber}}°</span>
     </div>
     <div class="col-item d-flex flex-row align-items-center">
         <i class='bx bxs-arrow-down-stroke {{hourlyWeather.wind_direction_10m | windDirectionIcon}}'></i>
         <div class="d-flex flex-column">
-            <span class="fw-bold">{{hourlyWeather.wind_direction_10m | windDirection }}</span>
+            <span class="fw-bold">{{hourlyWeather.wind_direction_10m | windDirection | translate }}</span>
             <span>{{hourlyWeather.wind_speed_10m | formatNumber}} - {{hourlyWeather.wind_gusts_10m | formatNumber}} {{hourlyUnits.wind_speed_10m}}</span>
         </div>
     </div>
@@ -32,7 +32,8 @@
     <div class=" item-row d-flex flex-row justify-content-start align-self-center precipitation">
       <img [src]="hourlyWeather.weather_code | weatherCodeIcon: hourlyWeather.isDay" [title]="hourlyWeather.weather_code | weatherCode"
         width="40" height="40">
-      <div class="d-flex flex-column justify-content-center text-precipitation">
+      <div class="d-flex flex-column justify-content-center text-precipitation"
+           [ngClass]="{'d-none': hourlyWeather.precipitation_probability === 0 || hourlyWeather.precipitation === 0}">
         <span
           class="text-blue-small text-percent-rain">{{hourlyWeather.precipitation_probability}}{{hourlyUnits.precipitation_probability}}</span>
         <span
@@ -45,7 +46,6 @@
     </div>
     <div class=" item-row d-flex flex-row align-items-center">
       <i class='bx bxs-arrow-down-stroke {{hourlyWeather.wind_direction_10m | windDirectionIcon}}'></i>
-      <span class="wind-info">{{hourlyWeather.wind_speed_10m | formatNumber}}
-        {{hourlyUnits.wind_speed_10m}}</span>
+      <span class="wind-info">{{hourlyWeather.wind_speed_10m | formatNumber}} - {{hourlyWeather.wind_gusts_10m | formatNumber}} {{hourlyUnits.wind_speed_10m}}</span>
     </div>
 </div>

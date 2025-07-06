@@ -2,12 +2,9 @@
     <i class="bxr  bx-alert-circle"></i> 
     <div class="d-flex flex-column align-items-center text">
         <h2>4 0 4 - Error</h2>
-        <p>La página solicitada no está disponible</p>
-        <p>La página que estás intentando acceder no está disponible o ha sido movida.</p>
-        <p>Intenta volver a la página de inicio.</p>
-        <!-- <p>Oops!. Algo salió mal.</p>
-        <p>No fue posible cargar los datos de forma correcta.</p>
-        <p>Intenta nuevamente volviendo a la página principal.</p> -->
-        <button class="btn btn-dark" (click)="goToHome()">Regresar a inicio</button>
+        <p>{{ 'not_found.parragraph1' | translate }}</p>
+        <p>{{ 'not_found.parragraph2' | translate }}</p>
+        <p>{{ 'not_found.parragraph3' | translate }}</p>
+        <button class="btn btn-dark" (click)="goToHome()">{{ 'not_found.home_button' | translate }}</button>
     </div>
 </div>

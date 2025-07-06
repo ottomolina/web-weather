@@ -1,26 +1,29 @@
 import { Pipe, PipeTransform } from "@angular/core";
-
-const nameDays = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+import { TranslateService } from "@ngx-translate/core";
 
 @Pipe({
     name: 'dayOfWeek'
 })
 export class DayOfWeek implements PipeTransform {
 
+    constructor(
+        public translate: TranslateService
+    ) {}
+
     transform(time?: string, card?: boolean, withDate?: boolean) {
 
         const date = this.transformIntoDate(time);
         if(card) {
             if(this.compareDates(date, this.transformIntoDate())) {
-                return 'Hoy';
+                return this.translate.instant('today');
             }
             if(this.compareDates(date, this.transformIntoDate(undefined, 1))) {
-                return 'Mañana';
+                return this.translate.instant('tomorrow');
             }
         }
-        let day = withDate
-            ? `${nameDays[date.getDay()].substring(0,3)} ${date.getDate()}`
-            : nameDays[date.getDay()];
+        const options:any = { weekday: withDate ? 'short':'long' };
+        withDate && (options.day = '2-digit');
+        let day = date.toLocaleDateString(this.translate.currentLang, options);
         return day;
     }
 

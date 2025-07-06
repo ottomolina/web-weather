@@ -1,1 +1,44 @@
-{}
+{
+    "app.title": "Clima",
+    "search.placeholder": "Clima en...",
+    "error_messages": {
+        "getcountryfromip1": "Ocurrió un problema al cargar los datos, por favor refresca la página para intentar de nuevo.",
+        "searchingprocess1": "Ocurrió un problema al realizar la búsqueda, por favor reintenta nuevamente.",
+        "selectPlace1": "Ocurrió un problema al realizar esta acción, por favor reintenta nuevamente."
+    },
+    "body.title": "El tiempo en {{place.name}}",
+	"card.current.feeling": "Sensación de",
+    "hourly.sensation": "Sensación T.",
+    "today": "Hoy",
+    "tomorrow": "Mañana",
+
+    "north": "Norte",
+    "northeast": "Noreste",
+    "east": "Este",
+    "southeast": "Sureste",
+    "south": "Sur",
+    "southwest": "Suroeste",
+    "west": "Oeste",
+    "north-west": "Noroeste",
+    
+    "Clear": "Despejado",
+    "Partly cloudy": "Parcialmente nublado",
+    "Fog": "Niebla",
+    "Drizzle": "Llovizna",
+    "Freezing drizzle": "Llovizna helada",
+    "Rain": "Lluvia",
+    "Freezing rain": "Lluvia helada",
+    "Snowfall": "Caída de nieve",
+    "Hail": "Granizo",
+    "Rain showers": "Chubascos de lluvia",
+    "Snow showers": "Chubascos de nieve",
+    "Thunderstorm": "Tormenta",
+    "Thunderstorm with hail": "Tormenta con granizo",
+
+    "not_found": {
+        "parragraph1": "La página solicitada no está disponible.",
+        "parragraph2": "La página que estás intentando acceder no está disponible o ha sido movida.",
+        "parragraph3": "Intenta volver a la página de inicio.",
+        "home_button": "Regresar a inicio"
+    }
+}
