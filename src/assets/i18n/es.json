@@ -40,5 +40,8 @@
         "parragraph2": "La página que estás intentando acceder no está disponible o ha sido movida.",
         "parragraph3": "Intenta volver a la página de inicio.",
         "home_button": "Regresar a inicio"
-    }
+    },
+
+    "temperature.unit": "",
+    "wind.unit": "kmh"
 }

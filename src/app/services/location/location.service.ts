@@ -34,6 +34,14 @@ export class LocationService {
     let url = `${environment.urlWeather}`;
     url = url.replace('{lat}', encodeURIComponent(latitude));
     url = url.replace('{lon}', encodeURIComponent(longitude));
+
+    const tempUnit = this.translate.instant('temperature.unit');
+    const windUnit = this.translate.instant('wind.unit');
+    if(tempUnit) {
+      url += `&temperature_unit=${tempUnit}`;
+    }
+    url += `&wind_speed_unit=${windUnit}`;
+
     return this.http.get<Weather>(url);
   }
 

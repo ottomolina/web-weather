@@ -8,13 +8,14 @@
                 <div class="d-flex flex-row align-items-baseline">
                     <img [src]="weather.current.weather_code | weatherCodeIcon: weather.current.is_day">
                     <div class="d-flex flex-column justify-content-center align-items-center">
-                        <span class="text-current-temperature">{{weather.current.temperature_2m | formatNumber}}°</span>
-                        <span class="text-apparent-temperature">{{'card.current.feeling'|translate}} {{weather.current.apparent_temperature | formatNumber}}°</span>
+                        <span class="text-current-temperature">{{weather.current.temperature_2m | formatNumber}}{{weather.current_units.temperature_2m}}</span>
+                        <span class="text-apparent-temperature">{{'card.current.feeling'|translate}} {{weather.current.apparent_temperature | formatNumber}}
+                            {{weather.current_units.apparent_temperature }}</span>
                     </div>
                 </div>
                 <div class="d-flex flex-column justify-content-between">
                     <i class='bx bx-umbrella'></i> 
-                    <span class="text-percent-rain">{{weather.current.relative_humidity_2m + '' + weather.current_units.relative_humidity_2m}}</span>
+                    <span class="text-percent-rain">{{weather.current.relative_humidity_2m}}{{weather.current_units.relative_humidity_2m}}</span>
                     <span class="text-precipitation">{{weather.current.precipitation}} {{weather.current_units.precipitation}}</span>
                 </div>
             </div>

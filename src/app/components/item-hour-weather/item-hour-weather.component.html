@@ -9,11 +9,11 @@
         </div>
     </div>
     <div class="col-item d-flex flex-row justify-content-center">
-        <span class="fw-bold fs-4">{{hourlyWeather.temperature_2m | formatNumber}}°</span>
+        <span class="fw-bold fs-4">{{hourlyWeather.temperature_2m | formatNumber}}{{hourlyUnits.temperature_2m}}</span>
     </div>
     <div class="col-item d-flex flex-column">
         <span class="fw-bold">{{hourlyWeather.weather_code | weatherCode | translate }}</span>
-        <span>{{'hourly.sensation'|translate}} {{hourlyWeather.apparent_temperature | formatNumber}}°</span>
+        <span>{{'hourly.sensation'|translate}} {{hourlyWeather.apparent_temperature | formatNumber}}{{hourlyUnits.apparent_temperature}}</span>
     </div>
     <div class="col-item d-flex flex-row align-items-center">
         <i class='bx bxs-arrow-down-stroke {{hourlyWeather.wind_direction_10m | windDirectionIcon}}'></i>
@@ -41,8 +41,7 @@
       </div>
     </div>
     <div class=" item-row d-flex flex-row align-self-center justify-content-center temperature">
-      <span class="text-temperature">{{hourlyWeather.temperature_2m |
-        formatNumber}}{{hourlyUnits.temperature_2m}}</span>
+      <span class="text-temperature">{{hourlyWeather.temperature_2m | formatNumber}}{{hourlyUnits.temperature_2m}}</span>
     </div>
     <div class=" item-row d-flex flex-row align-items-center">
       <i class='bx bxs-arrow-down-stroke {{hourlyWeather.wind_direction_10m | windDirectionIcon}}'></i>

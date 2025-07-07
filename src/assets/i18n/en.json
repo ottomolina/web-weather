@@ -40,5 +40,8 @@
         "parragraph2": "Page you are trying to access is unavailable or has been moved.",
         "parragraph3": "Try returning to the home page.",
         "home_button": "Return to home"
-    }
+    },
+
+    "temperature.unit": "fahrenheit",
+    "wind.unit": "mph"
 }
