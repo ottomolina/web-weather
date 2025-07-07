@@ -43,5 +43,7 @@
     },
 
     "temperature.unit": "fahrenheit",
-    "wind.unit": "mph"
+    "wind.unit": "mph",
+
+    "loading": "Loading..."
 }

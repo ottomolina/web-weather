@@ -43,5 +43,7 @@
     },
 
     "temperature.unit": "",
-    "wind.unit": "kmh"
+    "wind.unit": "kmh",
+
+    "loading": "Cargando..."
 }
