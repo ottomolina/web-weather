@@ -1,0 +1,19 @@
+<div class="div-day-weather" [ngClass]="{'active': dailyWeather.active}">
+    <span class="text-day-name">{{dailyWeather.date | dayOfWeek: true }}</span>
+    <span class="text-day-date">{{dailyWeather.date | dayAndMonth }}</span>
+    <img [src]="dailyWeather.weather_code | weatherCodeIcon" [title]="dailyWeather.weather_code | weatherCode">
+    <span class="text-blue-small text-percent-rain">{{dailyWeather.precipitation_probability_max}}{{dailyUnits.precipitation_probability_max}}</span>
+    <span class="text-blue-small">{{dailyWeather.precipitation_sum}}{{dailyUnits.precipitation_sum}}</span>
+    <p class="container-temperature">
+        <span class="text-min-temperature">{{dailyWeather.temperature_2m_min | formatNumber}}{{dailyUnits.temperature_2m_min}}</span>
+        <span>&nbsp;/&nbsp;</span>
+        <span class="text-max-temperature">{{dailyWeather.temperature_2m_max | formatNumber}}{{dailyUnits.temperature_2m_max}}</span>
+    </p>
+    <div class="d-flex flex-column align-self-center justify-content-center">
+        <i class='bx bxs-arrow-down-stroke {{dailyWeather.wind_direction_10m | windDirectionIcon}}'></i>
+        <div class="container-wind-info d-flex flex-row justify-content-center">
+            <span>{{dailyWeather.wind_gusts_10m_min | formatNumber}} - {{dailyWeather.wind_gusts_10m_max | formatNumber}}</span>
+            <span>{{dailyUnits.wind_gusts_10m_max}}</span>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+html, body, .container-fluid {
+    min-width: 18rem;
+}
+
+.wind-south {
+    rotate: 0deg;
+}
+.wind-southwest {
+    rotate: 45deg;
+}
+.wind-west {
+    rotate: 90deg;
+}
+.wind-northwest {
+    rotate: 135deg;
+}
+.wind-north {
+    rotate: 180deg;
+}
+.wind-northeast {
+    rotate: 225deg;
+}
+.wind-east {
+    rotate: 270deg;
+}
+.wind-southeast {
+    rotate: 315deg;
+}

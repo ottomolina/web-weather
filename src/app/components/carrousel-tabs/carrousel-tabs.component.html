@@ -1,0 +1,9 @@
+<div class="row g-0 d-flex d-md-none">
+    <div class="container-tabs">
+        <div class="tabs d-flex flex-row align-items-center">
+            <span class="text-tab" *ngFor="let item of listTime" [ngClass]="{'active': item.active}" (click)="selectDay(item)">
+                {{item.time | dayOfWeek:true:true}}
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="row g-0 d-none d-md-flex justify-content-center px-2 px-md-auto">
+    <div class="col col-lg-10 d-flex justify-content-md-center" style="overflow: auto;">
+        <div class="prev" [ngClass]="{'hide-button': initialSlice===0}">
+            <span class="button-prev" (click)="clickBtnPrevNext(0)">
+                <i class='bx bx-chevron-left'></i>
+            </span>
+        </div>
+        <app-card-day-weather *ngFor="let item of listDailyWeather | slice: initialSlice:finalSlice;"
+                            [dailyUnits]="weather.daily_units"
+                            [dailyWeather]="item"
+                            (click)="clickCardDay(item)"
+                            >
+        </app-card-day-weather>
+        <div class="next" [ngClass]="{'hide-button': initialSlice===7}">
+            <span class="button-next" (click)="clickBtnPrevNext(7)">
+                <i class='bx bx-chevron-right'></i>
+            </span>
+        </div>
+    </div>
+</div>

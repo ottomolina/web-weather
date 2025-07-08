@@ -1,0 +1,50 @@
+<div class="d-none d-md-flex flex-row align-items-center justify-content-between px-2 py-1 border-bottom">
+    <div class="col-item fw-bold">{{hourlyWeather.time}}</div>
+    <div class="col-item d-flex flex-row align-items-center">
+        <img [src]="hourlyWeather.weather_code | weatherCodeIcon: hourlyWeather.isDay" title="{{hourlyWeather.weather_code | weatherCode}}">
+        <div class="text-precipitation d-flex flex-column" 
+             [ngClass]="{'d-none': hourlyWeather.precipitation_probability === 0 || hourlyWeather.precipitation === 0}">
+            <span>{{hourlyWeather.precipitation_probability}}{{hourlyUnits.precipitation_probability}}</span>
+            <span>{{hourlyWeather.precipitation | formatNumber: 2}}{{hourlyUnits.precipitation}}</span>
+        </div>
+    </div>
+    <div class="col-item d-flex flex-row justify-content-center">
+        <span class="fw-bold fs-4">{{hourlyWeather.temperature_2m | formatNumber}}{{hourlyUnits.temperature_2m}}</span>
+    </div>
+    <div class="col-item d-flex flex-column">
+        <span class="fw-bold">{{hourlyWeather.weather_code | weatherCode | translate }}</span>
+        <span>{{'hourly.sensation'|translate}} {{hourlyWeather.apparent_temperature | formatNumber}}{{hourlyUnits.apparent_temperature}}</span>
+    </div>
+    <div class="col-item d-flex flex-row align-items-center">
+        <i class='bx bxs-arrow-down-stroke {{hourlyWeather.wind_direction_10m | windDirectionIcon}}'></i>
+        <div class="d-flex flex-column">
+            <span class="fw-bold">{{hourlyWeather.wind_direction_10m | windDirection | translate }}</span>
+            <span>{{hourlyWeather.wind_speed_10m | formatNumber}} - {{hourlyWeather.wind_gusts_10m | formatNumber}} {{hourlyUnits.wind_speed_10m}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex d-md-none flex-row align-self-center justify-content-between border-bottom py-2"
+        aria-current="true">
+    <div class=" item-row d-flex w-30 flex-column align-self-center">
+      <span class="mb-1 day-week">{{hourlyWeather.time}}</span>
+    </div>
+    <div class=" item-row d-flex flex-row justify-content-start align-self-center precipitation">
+      <img [src]="hourlyWeather.weather_code | weatherCodeIcon: hourlyWeather.isDay" [title]="hourlyWeather.weather_code | weatherCode"
+        width="40" height="40">
+      <div class="d-flex flex-column justify-content-center text-precipitation"
+           [ngClass]="{'d-none': hourlyWeather.precipitation_probability === 0 || hourlyWeather.precipitation === 0}">
+        <span
+          class="text-blue-small text-percent-rain">{{hourlyWeather.precipitation_probability}}{{hourlyUnits.precipitation_probability}}</span>
+        <span
+          class="text-blue-small text-sum-rain">{{hourlyWeather.precipitation}}{{hourlyUnits.precipitation}}</span>
+      </div>
+    </div>
+    <div class=" item-row d-flex flex-row align-self-center justify-content-center temperature">
+      <span class="text-temperature">{{hourlyWeather.temperature_2m | formatNumber}}{{hourlyUnits.temperature_2m}}</span>
+    </div>
+    <div class=" item-row d-flex flex-row align-items-center">
+      <i class='bx bxs-arrow-down-stroke {{hourlyWeather.wind_direction_10m | windDirectionIcon}}'></i>
+      <span class="wind-info">{{hourlyWeather.wind_speed_10m | formatNumber}} - {{hourlyWeather.wind_gusts_10m | formatNumber}} {{hourlyUnits.wind_speed_10m}}</span>
+    </div>
+</div>

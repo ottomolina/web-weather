@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid justify-content-center">
+    <span class="navbar-brand">{{'app.title' | translate}}</span>
+    <div>
+      <div class="d-flex" role="search">
+        <input class="form-control me-2" 
+               id="txtBuscar"
+               type="search"
+               [placeholder]="'search.placeholder' | translate"
+               aria-label="Search"
+               (focus)="focusSearch()"
+               (blur)="blurSearch()"
+               autocomplete="off"
+               (input)="search($event)">
+      </div>
+      <div class="div-results div-result" [ngClass]="{'result-invisible': !showBox, 'result-visible': showBox}">
+        <ul class="list-result row">
+          <li tabindex="2" *ngFor="let item of listPlaces" (click)="selectPlace(item)">
+              <span class="location-icon"></span>
+              <span class="location d-flex flex-column">
+                <span class="name">{{item.name}}</span>
+                <span class="name-display">{{item.display_name}}</span>
+              </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

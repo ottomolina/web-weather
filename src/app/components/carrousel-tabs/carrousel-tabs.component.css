@@ -1,0 +1,34 @@
+
+.container-tabs {
+    background: #FFFFFF;
+    padding: 0 .5rem;
+    padding-top: 0.1rem;
+}
+
+.tabs {
+    gap: 24px;
+    overflow-x: scroll;
+    width: 100%;
+    margin-top: 1rem;
+    color: #3e5463;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.text-tab {
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    line-height: 18px;
+    padding-bottom: .875rem;
+}
+
+.text-tab.active {
+    font-weight: bold;
+    border-bottom: 1px solid #009ee2;
+}

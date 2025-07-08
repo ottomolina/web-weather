@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ToastService } from './components/toast/toast.service';
+import { Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,14 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'web-weather';
+  
+  constructor(
+    public toastService: ToastService,
+    private translate: TranslateService,
+    private title: Title,
+  ) {
+    setTimeout(() => {
+      this.title.setTitle(this.translate.instant('app.title'));
+    }, 100);
+  }
 }
